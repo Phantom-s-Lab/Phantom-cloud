@@ -2,6 +2,7 @@
 
 - 상태: 승인
 - 날짜: 2026-11-19
+- 관련: [#1](https://github.com/Phantom-s-Lab/Phantom-cloud/issues/1)
 
 ## 맥락
 - GitOps 전환을 위해 클러스터의 원하는 상태(desired state)를 Git으로 관리해야 함

@@ -1,12 +1,12 @@
 # Architecture Decision Records
 
-플랫폼의 주요 설계 결정과 그 근거를 기록합니다. 새 ADR은 [ADR-0000 템플릿](0000-adr-template.md) 형식을 따릅니다.
+플랫폼의 주요 설계 결정과 그 근거를 기록합니다. 새 ADR은 [template.md](template.md)를 복사해 작성합니다.
 
 ## 목록
 
 | 번호 | 제목 | 상태 | 날짜 |
 | --- | --- | --- | --- |
-| [0000](0000-adr-template.md) | ADR Template 생성 | 승인 | 2026-11-19 |
+| [0000](0000-record-architecture-decisions.md) | 설계 결정을 ADR로 기록 | 승인 | 2026-11-19 |
 | [0001](0001-repo-split.md) | 레포를 gitops / infra / ctl로 분리 | 승인 | 2026-11-19 |
 
 ## 상태

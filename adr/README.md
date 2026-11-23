@@ -8,6 +8,7 @@
 | --- | --- | --- | --- |
 | [0000](0000-record-architecture-decisions.md) | 설계 결정을 ADR로 기록 | 승인 | 2026-11-19 |
 | [0001](0001-repo-split.md) | 레포를 gitops / infra / ctl로 분리 | 승인 | 2026-11-19 |
+| [0002](0002-argocd-placement.md) | ArgoCD를 클러스터 내 x86 노드에 배치 | 제안 | 2026-11-23 |
 
 ## 상태
 - **제안**: 결정을 기록했고 아직 구현·검증 전

@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | [0000](0000-record-architecture-decisions.md) | 설계 결정을 ADR로 기록 | 승인 | 2026-11-19 |
 | [0001](0001-repo-split.md) | 레포를 gitops / infra / ctl로 분리 | 승인 | 2026-11-19 |
-| [0002](0002-argocd-placement.md) | ArgoCD를 클러스터 내 x86 노드에 배치 | 제안 | 2026-11-23 |
+| [0002](0002-argocd-placement.md) | ArgoCD를 클러스터 내 x86 노드에 배치 | 승인 | 2026-11-23 |
 | [0004](0004-rpi-os-btf.md) | Raspberry Pi 노드 OS를 Ubuntu Server 24.04 LTS로 교체 (커널 BTF 확보) | 제안 | 2026-11-24 |
 
 ## 상태

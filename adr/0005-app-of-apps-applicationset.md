@@ -1,6 +1,6 @@
 # ADR-0005: 플랫폼은 App-of-Apps, 테넌트는 ApplicationSet으로 관리
 
-- 상태: 제안
+- 상태: 승인
 - 날짜: 2026-11-25
 - 관련: [#8](https://github.com/Phantom-s-Lab/Phantom-cloud/issues/8), [phantom-cloud-gitops#5](https://github.com/Phantom-s-Lab/phantom-cloud-gitops/issues/5), [ADR-0002](0002-argocd-placement.md)
 
@@ -25,6 +25,14 @@
 | Application 수동 적용 | Git에 이력이 남지 않고 명령형 관리로 돌아감 |
 | 전부 ApplicationSet | 플랫폼 구성요소는 설정이 제각각이라 템플릿 하나에 맞추기 어려움 |
 | 전부 App-of-Apps | 테넌트마다 거의 같은 Application 파일을 복사해야 함 |
+
+## 검증 (2026-11-25)
+| # | 시나리오 | 결과 |
+|---|---|---|
+| 1 | root 적용 → `apps/`의 앱 자동 생성 | 4초 내 sample-nginx 생성, Synced/Healthy |
+| 2 | `kubectl scale`로 replicas 3으로 직접 수정 | selfHeal로 즉시 1로 복구 |
+| 3 | Git에서 Service 삭제 ([phantom-cloud-gitops#7](https://github.com/Phantom-s-Lab/phantom-cloud-gitops/pull/7)) | 클러스터에서도 삭제됨 (prune), Deployment 유지 |
+| 4 | 삭제 커밋 `git revert` ([phantom-cloud-gitops#8](https://github.com/Phantom-s-Lab/phantom-cloud-gitops/pull/8)) | Service 재생성 |
 
 ## 결과
 ### 이점

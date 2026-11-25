@@ -10,7 +10,7 @@
 | [0001](0001-repo-split.md) | 레포를 gitops / infra / ctl로 분리 | 승인 | 2026-11-19 |
 | [0002](0002-argocd-placement.md) | ArgoCD를 클러스터 내 x86 노드에 배치 | 승인 | 2026-11-23 |
 | [0004](0004-rpi-os-btf.md) | Raspberry Pi 노드 OS를 Ubuntu Server 24.04 LTS로 교체 (커널 BTF 확보) | 제안 | 2026-11-24 |
-| [0005](0005-app-of-apps-applicationset.md) | 플랫폼은 App-of-Apps, 테넌트는 ApplicationSet으로 관리 | 제안 | 2026-11-25 |
+| [0005](0005-app-of-apps-applicationset.md) | 플랫폼은 App-of-Apps, 테넌트는 ApplicationSet으로 관리 | 승인 | 2026-11-25 |
 
 ## 상태
 - **제안**: 결정을 기록했고 아직 구현·검증 전

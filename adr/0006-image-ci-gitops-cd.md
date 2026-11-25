@@ -1,6 +1,6 @@
 # ADR-0006: 직접 빌드 이미지의 CI와 GitOps 연계 CD
 
-- 상태: 제안
+- 상태: 승인
 - 날짜: 2026-11-25
 - 관련: [#11](https://github.com/Phantom-s-Lab/Phantom-cloud/issues/11), [phantom-cloud-gitops#9](https://github.com/Phantom-s-Lab/phantom-cloud-gitops/issues/9), [ADR-0001](0001-repo-split.md), [ADR-0005](0005-app-of-apps-applicationset.md)
 
@@ -31,6 +31,18 @@
 | CI에서 kubectl/helm으로 직접 배포 | CI에 클러스터 인증 정보가 필요하고 Git과 클러스터 상태가 어긋날 수 있음 |
 | ArgoCD Image Updater | 배포 승인 지점(PR 리뷰)이 사라짐 |
 | gitops main에 자동 커밋 | 리뷰 없이 배포됨 |
+
+## 검증 (2026-11-25)
+| 단계 | 결과 |
+|---|---|
+| images PR 검증 | hadolint(DL4006 검출 후 수정), 빌드, 스모크 테스트 9항목, Trivy CRITICAL 0건 |
+| main 병합 → 빌드·푸시 | verify → publish → deploy-pr 모두 성공, `tenant-base:sha-c3a4983` 푸시 |
+| 배포 PR 자동 생성 | [phantom-cloud-gitops#12](https://github.com/Phantom-s-Lab/phantom-cloud-gitops/pull/12) 생성, kubeconform·helm-lint 통과 |
+| 병합 → 배포 | ArgoCD 동기화 후 pipeline-sample 파드가 새 이미지로 롤링 교체 |
+| 추적성 | 클러스터 이미지 태그 `sha-c3a4983` = 소스 병합 커밋 `c3a4983` |
+
+- 진행 중 발견: `aquasecurity/trivy-action`의 기존 태그(0.28.0)가 2026-03 공급망 공격 대응으로 사용 불가 → 침해되지 않은 v0.35.0의 커밋 SHA로 고정
+- 배포 PR 작성자가 PAT 소유자(개인 계정)로 표시됨 → GitHub App 전환 시 봇 계정으로 구분 가능
 
 ## 결과
 ### 이점
